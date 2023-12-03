@@ -3,21 +3,25 @@ const keys = {
     D:false,
     W:false,
     S:false,
+    SPACE:false,
 };
 
 window.onkeydown=e=>{
+    console.log(e.code)
     switch(e.code){
         case 'KeyA':
+        // case 'ArrowLeft':
             keys.A = true;
             break;
         case 'KeyW':
             keys.W = true;
             break;
         case 'KeyD':
+        // case 'ArrowRight':
             keys.D = true;
             break;
-        case 'KeyS':
-            keys.S = true;
+        case 'Space':
+            keys.SPACE = true;
             break;
     }
 }
