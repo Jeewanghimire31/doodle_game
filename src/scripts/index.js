@@ -18,7 +18,8 @@ player.draw(ctx);
 player.moveLeft();
 player.moveRight();
 player.fall();
-// player.jump(ctx)
+player.dead();
+player.jump()
 
 // if (keys.A || keys.D) {
 //     player.vx = keys.A ? -SPEED : SPEED;

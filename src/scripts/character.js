@@ -23,23 +23,23 @@ class Character {
       this.y = y;
       this.width = width;
       this.height = height;
-      this.gravity=.5;
-      this.velocity=1;
+      this.gravity=.1;
+      this.velocity=0;
+      this.jumpForce=9;
 
     }
     draw(ctx) {
-    ctx.fillStyle = '#ff0000';
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.fillStyle = '#ff0000';
+        ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 
     moveLeft(){
-        console.log()
         if(keys.A){
             console.log(this.x,this.width,this.x-this.width)
             if(this.x<-this.width){
                 this.x=canvas.width-this.width;
             }else{
-                this.x=this.x-2
+                this.x=this.x-10
             }
         }
     }
@@ -48,16 +48,37 @@ class Character {
             if(this.x>=canvas.width){
                 this.x=0;
             }else{
-                this.x=this.x+2
-            }        }
+                this.x=this.x+10
+            }        
+        }
     }
 
     fall(){
-        // this.y+=0.5
-
         this.velocity += this.gravity;
         this.y += this.velocity;
+
+        
     }
 
-    jump(){}
+    dead(){
+        if(this.y>=canvas.height){
+            ctx.font = "30px Arial";
+            ctx.fillText("Game Over!", canvas.width/2, canvas.height/2);
+
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+
+    jump(){
+        // console.log({velocity:this.velocity})
+        if(keys.SPACE){
+            this.velocity -= this.jumpForce;
+            keys.SPACE=false;
+        }
+    }
  }
+
+
+
+
+//  
