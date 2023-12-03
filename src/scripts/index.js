@@ -11,10 +11,7 @@ function animate(){
 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 
-// draw shape and move
-// ctx.fillStyle = '#000';
-// ctx.fillRect(x, 100, 100, 100);
-//  x +=speed;
+
 
 player.draw(ctx);
 

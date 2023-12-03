@@ -23,6 +23,8 @@ class Character {
       this.y = y;
       this.width = width;
       this.height = height;
+      this.gravity=.5;
+      this.velocity=1;
 
     }
     draw(ctx) {
@@ -33,18 +35,28 @@ class Character {
     moveLeft(){
         console.log()
         if(keys.A){
-            this.x=this.x-10
-            console.log(this.x)
+            console.log(this.x,this.width,this.x-this.width)
+            if(this.x<-this.width){
+                this.x=canvas.width-this.width;
+            }else{
+                this.x=this.x-2
+            }
         }
     }
     moveRight(){
         if(keys.D){
-            this.x=this.x+10
-        }
+            if(this.x>=canvas.width){
+                this.x=0;
+            }else{
+                this.x=this.x+2
+            }        }
     }
 
     fall(){
-        this.y+=2
+        // this.y+=0.5
+
+        this.velocity += this.gravity;
+        this.y += this.velocity;
     }
 
     jump(){}
