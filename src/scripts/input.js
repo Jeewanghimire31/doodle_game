@@ -7,8 +7,7 @@ const keys = {
 };
 
 window.onkeydown=e=>{
-    console.log(e.code)
-    switch(e.code){
+        switch(e.code){
         case 'KeyA':
         // case 'ArrowLeft':
             keys.A = true;
